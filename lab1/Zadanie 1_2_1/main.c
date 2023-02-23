@@ -4,5 +4,7 @@
 int main()
 {
     printf("Hello world!\n");
+    //print- drukuj, f- z formatem
+
     return 0;
 }
