@@ -4,8 +4,8 @@
 int main()
 {
     int liczba1;
-    printf("Wpisz liczbe calkowita\n");
-    scanf("d", & liczba1);
+    scanf("%d", & liczba1);
+    liczba1 += 1;
     printf("Wpisana liczba: %d\n", liczba1);
     return 0;
 }
