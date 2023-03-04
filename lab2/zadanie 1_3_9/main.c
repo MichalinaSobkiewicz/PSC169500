@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//niedokończone !!!
 int main()
 {
   float liczba1, liczba2;
