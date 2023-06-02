@@ -1,29 +1,27 @@
 #include <stdio.h>
-#include <string.h>
-
-//Napisz funkcję, która dostaje w argumencie napis. Funkcja ma zwrócić długość napisu, gdy napis nie
-//zawiera cyfr w systemie szesnastkowym. Jeśli napis zawiera takową cyfrę, to za każdą cyfrę należy
-//odjąć 1 do długości napisu i to zwrócić. Stwórz przypadek testowy.
 
 int dlugoscnapisu(char* nap)
 {
-    int dlugosc = strlen(nap);
+    int dlugosc = 0;
     int count = 0;
 
-    for (int i = 0; i < dlugosc; i++)
-    //szesnastkowy od 0-9, od a-f i od A-F
+while (nap[dlugosc] != 0)
+{
+    if ((nap[dlugosc] >= 48 && nap[dlugosc] <= 57) ||  // 0-9
+        (nap[dlugosc] >= 97 && nap[dlugosc] <= 102) ||  // a-f
+        (nap[dlugosc] >= 65 && nap[dlugosc] <= 70))  // A-F
     {
-        if ((nap[i] >= '0' && nap[i] <= '9') || (nap[i] >= 'a' && nap[i] <= 'f') || (nap[i] >= 'A' && nap[i] <= 'F'))
-        {
-            count++;
-        }
+        count++;
     }
+
+    dlugosc++;
+}
+
 
     if (count > 0)
     {
         return dlugosc - count;
     }
-
     else
     {
         return dlugosc;
@@ -32,13 +30,16 @@ int dlugoscnapisu(char* nap)
 
 int main() {
     char str1[] = "ghijklmno";
-    char str2[] = "aAbBCcDdEeFf123456789";
+    char str2[] = "AaBbCc1234567890";
+    //char str3[] = "Bardzo ladny napis 1234";
 
     int length1 = dlugoscnapisu(str1);
     int length2 = dlugoscnapisu(str2);
+    //int length3 = dlugoscnapisu(str3);
 
     printf("Dlugosc napisu pierwszego: %d\n", length1);
     printf("Dlugosc napisu drugiego: %d\n", length2);
+    //printf("Dlugosc napisu trzeciego: %d\n", length3);
 
     return 0;
 }
