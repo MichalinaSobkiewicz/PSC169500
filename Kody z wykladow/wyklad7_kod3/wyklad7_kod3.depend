@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1685656099 source:c:\users\micha\onedrive\documents\github\psc169500\kody z wykladow\wyklad7_kod3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
