@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1685831044 source:c:\users\micha\onedrive\documents\github\psc169500\kolokwia2\kol_2022_zad4_221\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
