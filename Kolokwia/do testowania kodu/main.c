@@ -1,36 +1,31 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 
-double obliczWyrazenie(int n, double x) {
-    double wynik = 1.0;
-    int i = 1;
-    int znak = -1;
+enum Gra{gra1,gra2,gra3,gra4,gra5,gra6};
 
-    while (i <= n) {
-        double potega = pow(x, 2*i);
-        double mianownik = 2*i;
-        double wyraz = znak * (potega / mianownik);
-        wynik += wyraz;
-        znak *= -1;
-        i++;
+int main()
+{
+    enum Gra tab[6] = {"The Sims","Wiedźmin", "SimCity", "CS", "Forza","Minecraft"};
+    for(int i=0;i<6;i++){
+        switch(tab[i]){
+        case gra1:
+            printf("gra1\n");
+            break;
+        case gra2:
+            printf("gra2\n");
+            break;
+        case gra3:
+            printf("gra3\n");
+            break;
+        case gra4:
+            printf("gra4\n");
+            break;
+        case gra5:
+            printf("gra5\n");
+            break;
+        case gra6:
+            printf("gra6\n");
+        }
     }
-
-    return wynik;
 }
 
-int main() {
-    int n;
-    double x;
-
-    printf("Podaj liczbe calkowita dodatnia n: ");
-    scanf("%d", &n);
-
-    printf("Podaj liczbe wymierna dodatnia x: ");
-    scanf("%lf", &x);
-
-    double wynik = obliczWyrazenie(n, x);
-
-    printf("Wynik wyrazenia: %.2lf\n", wynik);
-
-    return 0;
-}
