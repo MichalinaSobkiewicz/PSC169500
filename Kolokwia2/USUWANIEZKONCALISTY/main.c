@@ -7,17 +7,26 @@ struct node
     struct node * next;
 };
 
-void usun_pierwszy(struct node *lista)
+void usun_ostatni(struct node *lista)
 {
-   if (lista->next == NULL)
+    if (lista->next == NULL)
     {
-        return;
+        return;  // Lista jest pusta
     }
-    struct node *tmp = lista->next;
-    lista->next = tmp->next;
-    free(tmp);
 
+    struct node *wsk = lista->next;
+    struct node *poprzedni = lista;
+
+    while (wsk->next != NULL)
+    {
+        poprzedni = wsk;
+        wsk = wsk->next;
+    }
+
+    poprzedni->next = NULL;
+    free(wsk);
 }
+
 void wyswietlListeZGlowa(struct node * lista)
 {
     if (lista->next->x == 3)
@@ -35,17 +44,20 @@ void wyswietlListeZGlowa(struct node * lista)
 }
 
 
-int main()
+
+    int main()
 {
-   struct node * lista = malloc(sizeof(struct node));
+    struct node *lista = malloc(sizeof(struct node));
     lista->next = malloc(sizeof(struct node));
     lista->next->x = 1;
     lista->next->next = malloc(sizeof(struct node));
     lista->next->next->x = 2;
     lista->next->next->next = NULL;
+
     wyswietlListeZGlowa(lista);
-    usun_pierwszy(lista);
+    usun_ostatni(lista);
     wyswietlListeZGlowa(lista);
 
+    return 0;
 }
 

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//LISTA Z GŁOWĄ
+
 struct elem
 {
     int x;

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//LISTA BEZ GŁOWY
 struct elem
 {
     int t;
