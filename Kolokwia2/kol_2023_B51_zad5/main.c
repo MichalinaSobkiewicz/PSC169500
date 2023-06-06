@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct element
+struct node
 {
-    int i;
-    struct element* next;
+    int t;
+    struct node* next;
 };
 
-int porownaj(struct element* Lista1, struct element* Lista2)
+int porownaj(struct node* Lista1, struct node* Lista2)
 {
-    struct element* wsk1 = Lista1->next;
-    struct element* wsk2 = Lista2->next;
+    struct node* wsk1 = Lista1->next;
+    struct node* wsk2 = Lista2->next;
     int suma1 = 0;
     int suma2 = 0;
 
@@ -36,9 +36,9 @@ int porownaj(struct element* Lista1, struct element* Lista2)
 }
 
 
-void wyswietl(struct element* Lista)
+void wyswietl(struct node* Lista)
 {
-    struct element* wsk = Lista->next;
+    struct node* wsk = Lista->next;
     if (wsk == NULL)
     {
         printf("Lista jest pusta\n");
@@ -47,7 +47,7 @@ void wyswietl(struct element* Lista)
 
     while (wsk != NULL)
     {
-        printf("%d\n", wsk->i);
+        printf("%d\n", wsk->t);
         wsk = wsk->next;
     }
     printf("---\n");
@@ -55,22 +55,22 @@ void wyswietl(struct element* Lista)
 
 int main()
 {
-    struct element* Lista1 = malloc(sizeof(struct element));
-    Lista1->next = malloc(sizeof(struct element));
-    Lista1->next->i = 11;
-    Lista1->next->next = malloc(sizeof(struct element));
-    Lista1->next->next->i = -4;
-    Lista1->next->next->next = malloc(sizeof(struct element));
-    Lista1->next->next->next->i = 9;
+    struct node* Lista1 = malloc(sizeof(struct node));
+    Lista1->next = malloc(sizeof(struct node));
+    Lista1->next->t = 11;
+    Lista1->next->next = malloc(sizeof(struct node));
+    Lista1->next->next->t = -4;
+    Lista1->next->next->next = malloc(sizeof(struct node));
+    Lista1->next->next->next->t = 9;
     Lista1->next->next->next->next = NULL;
 
-    struct element* Lista2 = malloc(sizeof(struct element));
-    Lista2->next = malloc(sizeof(struct element));
-    Lista2->next->i = 2;
-    Lista2->next->next = malloc(sizeof(struct element));
-    Lista2->next->next->i = 3;
-    Lista2->next->next->next = malloc(sizeof(struct element));
-    Lista2->next->next->next->i = 13;
+    struct node* Lista2 = malloc(sizeof(struct node));
+    Lista2->next = malloc(sizeof(struct node));
+    Lista2->next->t = 2;
+    Lista2->next->next = malloc(sizeof(struct node));
+    Lista2->next->next->t = 3;
+    Lista2->next->next->next = malloc(sizeof(struct node));
+    Lista2->next->next->next->t = 13;
     Lista2->next->next->next->next = NULL;
 
     wyswietl(Lista1);
