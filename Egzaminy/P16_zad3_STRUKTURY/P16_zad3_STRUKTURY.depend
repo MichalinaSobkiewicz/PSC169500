@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1686687162 source:c:\users\micha\onedrive\documents\github\psc169500\egzaminy\p16_zad3_struktury\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
