@@ -1,4 +1,5 @@
 # depslib dependency file v1.0
-1686747320 source:c:\users\micha\onedrive\documents\github\psc169500\egzaminy\p25_zad2_napisy\main.c
+1686750259 source:c:\users\micha\onedrive\documents\github\psc169500\egzaminy\p25_zad2_napisy\main.c
 	<stdio.h>
+	<stdlib.h>
 
