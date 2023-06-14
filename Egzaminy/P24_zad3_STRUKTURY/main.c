@@ -11,15 +11,11 @@ struct Komputer initKomputer(const char model[], int czasUzytkowania)
     struct Komputer komputer;
 
     int i = 0;
-    while (model[i] != '\0' && i < 19)
-    {
-        komputer.model[i] = model[i];
-        i++;
-    }
-    komputer.model[i] = '\0';
+
+    komputer.model[i] = 0;
 
     int dlugosc = 0;
-    while (model[dlugosc] != '\0')
+    while (model[dlugosc] != 0)
     {
         dlugosc++;
     }
@@ -55,13 +51,13 @@ void zwiekszCzasUzytkowania(struct Komputer *komputer)
 int main()
 {
     struct Komputer komputer1 = initKomputer("Lenovo Legion", 4000);
-    printf("Model: %s, Czas użytkowania: %d\n", komputer1.model, komputer1.czasUzytkowania);
+    printf("Model: %s, Czas uzytkowania: %d\n", komputer1.model, komputer1.czasUzytkowania);
 
     struct Komputer komputer2 = initKomputer("HP", 50);
-    printf("Model: %s, Czas użytkowania: %d\n", komputer2.model, komputer2.czasUzytkowania);
+    printf("Model: %s, Czas uzytkowania: %d\n", komputer2.model, komputer2.czasUzytkowania);
 
     zwiekszCzasUzytkowania(&komputer1);
-    printf("Po zwiększeniu czasu użytkowania: %d\n", komputer1.czasUzytkowania);
+    printf("Po zwiekszeniu czasu uzytkowania: %d\n", komputer1.czasUzytkowania);
 
     return 0;
 }
