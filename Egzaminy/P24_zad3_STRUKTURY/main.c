@@ -1,63 +1,92 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-struct Komputer
+struct elem
 {
-    char model[20];
-    int czasUzytkowania;
+    int t;
+    struct elem* next;
 };
 
-struct Komputer initKomputer(const char model[], int czasUzytkowania)
+int porownaj(struct elem* Lista1, struct elem* Lista2)
 {
-    struct Komputer komputer;
+    struct elem* wsk1 = Lista1;
+    struct elem* wsk2 = Lista2;
+    int suma1 = 0;
+    int suma2 = 0;
 
-    int i = 0;
-
-    komputer.model[i] = 0;
-
-    int dlugosc = 0;
-    while (model[dlugosc] != 0)
+    while (wsk1 != NULL)
     {
-        dlugosc++;
+        suma1++;
+        wsk1 = wsk1->next;
+    }
+    while (wsk2 != NULL)
+    {
+        suma2++;
+        wsk2 = wsk2->next;
     }
 
-    if (dlugosc >= 4 && czasUzytkowania > 100)
+    if (suma1 == suma2)
     {
-        komputer.czasUzytkowania = czasUzytkowania;
+        return 1;
     }
     else
     {
-        komputer.model[0] = 'D';
-        komputer.model[1] = 'E';
-        komputer.model[2] = 'F';
-        komputer.model[3] = 'A';
-        komputer.model[4] = 'U';
-        komputer.model[5] = 'L';
-        komputer.model[6] = 'T';
-
-        komputer.czasUzytkowania = 200;
+        return 0;
     }
-
-    return komputer;
 }
 
-void zwiekszCzasUzytkowania(struct Komputer *komputer)
+void wyswietl(struct elem* Lista)
 {
-    if (komputer != NULL)
+    struct elem* wsk = Lista;
+    if (wsk == NULL)
     {
-        komputer->czasUzytkowania += 100;
+        printf("Lista jest pusta\n");
+        return;
     }
+
+    while (wsk != NULL)
+    {
+        printf("%d\n", wsk->t);
+        wsk = wsk->next;
+    }
+    printf("---\n");
 }
 
 int main()
 {
-    struct Komputer komputer1 = initKomputer("Lenovo Legion", 4000);
-    printf("Model: %s, Czas uzytkowania: %d\n", komputer1.model, komputer1.czasUzytkowania);
+    struct elem* Lista1 = malloc(sizeof(struct elem));
 
-    struct Komputer komputer2 = initKomputer("HP", 50);
-    printf("Model: %s, Czas uzytkowania: %d\n", komputer2.model, komputer2.czasUzytkowania);
+    Lista1->t = 11;
+    Lista1->next = malloc(sizeof(struct elem));
+    Lista1->next->t = -4;
+    Lista1->next->next = malloc(sizeof(struct elem));
+    Lista1->next->next->t = 9;
+    Lista1->next->next->next = malloc(sizeof(struct elem));
+    Lista1->next->next->next->t = 13;
+    Lista1->next->next->next->next = NULL;
 
-    zwiekszCzasUzytkowania(&komputer1);
-    printf("Po zwiekszeniu czasu uzytkowania: %d\n", komputer1.czasUzytkowania);
+    struct elem* Lista2 = malloc(sizeof(struct elem));
+
+    Lista2->t = 2;
+    Lista2->next = malloc(sizeof(struct elem));
+    Lista2->next->t = 3;
+    Lista2->next->next = malloc(sizeof(struct elem));
+    Lista2->next->next->t = 13;
+    Lista2->next->next->next = NULL;
+
+    wyswietl(Lista1);
+    wyswietl(Lista2);
+
+    int wynik = porownaj(Lista1, Lista2);
+
+    if (wynik == 1)
+    {
+        printf("Suma elementow obu list jest rowna\n");
+    }
+    else
+    {
+        printf("Listy nie sa sobie rowne\n");
+    }
 
     return 0;
 }
